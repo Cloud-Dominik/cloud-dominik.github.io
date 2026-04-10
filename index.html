@@ -3,47 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cloud-Dominik | M365 & Modern Workplace Beratung</title>
-  <meta name="description" content="Cloud-Dominik unterstützt Unternehmen mit Beratung rund um Microsoft 365, Modern Workplace, Security, Intune und Automatisierung." />
+  <title>Cloud-Dominik | Blog & Infos zu Microsoft 365 und Modern Workplace</title>
+  <meta name="description" content="Cloud-Dominik bietet kompakte Infos, Blogbeiträge und praxisnahe Einblicke zu Microsoft 365, Modern Workplace, Intune, Security und Automatisierung." />
   <style>
     :root {
-      --bg: #0b1220;
-      --bg-soft: #111a2e;
-      --card: rgba(255, 255, 255, 0.06);
-      --card-border: rgba(255, 255, 255, 0.12);
-      --text: #f3f6fb;
-      --muted: #b7c2d6;
-      --primary: #4ea1ff;
-      --primary-dark: #2f7fe0;
-      --accent: #7dd3fc;
-      --success: #8bffb0;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --bg: #f6f9fc;
+      --surface: #ffffff;
+      --surface-soft: #eef4fb;
+      --text: #102033;
+      --muted: #627287;
+      --line: #dbe6f2;
+      --primary: #2563eb;
+      --primary-soft: #e8f0ff;
+      --accent: #0ea5e9;
+      --shadow: 0 18px 40px rgba(16, 32, 51, 0.08);
       --radius: 22px;
       --max-width: 1180px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(78, 161, 255, 0.18), transparent 30%),
-        radial-gradient(circle at top right, rgba(125, 211, 252, 0.10), transparent 25%),
-        linear-gradient(160deg, #07101d 0%, #0b1220 50%, #0f1830 100%);
       color: var(--text);
-      line-height: 1.6;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 30%),
+        radial-gradient(circle at top right, rgba(14, 165, 233, 0.08), transparent 28%),
+        var(--bg);
+      line-height: 1.65;
     }
 
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     .container {
@@ -54,10 +53,10 @@
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 10;
-      backdrop-filter: blur(14px);
-      background: rgba(11, 18, 32, 0.75);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 20;
+      background: rgba(246, 249, 252, 0.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(16, 32, 51, 0.06);
     }
 
     .nav {
@@ -65,6 +64,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 16px 0;
+      gap: 20px;
     }
 
     .brand {
@@ -72,482 +72,619 @@
       align-items: center;
       gap: 12px;
       font-weight: 700;
-      font-size: 1.05rem;
-      letter-spacing: 0.2px;
+      letter-spacing: -0.2px;
     }
 
     .brand-badge {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
       background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: white;
+      color: #fff;
       font-weight: 800;
-      box-shadow: var(--shadow);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.18);
     }
 
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 24px;
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.96rem;
     }
 
-    .hero {
-      padding: 84px 0 48px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 36px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(78, 161, 255, 0.12);
-      border: 1px solid rgba(78, 161, 255, 0.25);
-      color: #dcecff;
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      margin-bottom: 22px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--success);
-      box-shadow: 0 0 12px rgba(139, 255, 176, 0.9);
-    }
-
-    h1 {
-      margin: 0 0 20px;
-      font-size: clamp(2.4rem, 6vw, 4.4rem);
-      line-height: 1.06;
-      letter-spacing: -1.4px;
-    }
-
-    .lead {
-      font-size: 1.12rem;
-      color: var(--muted);
-      max-width: 700px;
-      margin-bottom: 30px;
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 28px;
+    .nav-links a:hover,
+    .footer-links a:hover {
+      color: var(--primary);
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 22px;
+      gap: 10px;
       border-radius: 14px;
+      padding: 13px 20px;
       font-weight: 600;
-      transition: 0.2s ease;
       border: 1px solid transparent;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     }
+
+    .btn:hover { transform: translateY(-1px); }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      box-shadow: 0 12px 30px rgba(47, 127, 224, 0.35);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.16);
     }
 
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
+      background: #fff;
+      border-color: var(--line);
       color: var(--text);
-      border-color: rgba(255, 255, 255, 0.10);
     }
 
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.08);
+    .hero {
+      padding: 72px 0 42px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid rgba(37, 99, 235, 0.08);
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.5rem, 5.5vw, 4.8rem);
+      line-height: 1.03;
+      letter-spacing: -1.6px;
+    }
+
+    .lead {
+      margin: 0 0 28px;
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
     }
 
     .hero-points {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px 24px;
+      gap: 12px;
+    }
+
+    .hero-points span {
+      background: #fff;
       color: var(--muted);
-      font-size: 0.96rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.92rem;
     }
 
-    .hero-points span::before {
-      content: "•";
-      color: var(--accent);
-      margin-right: 8px;
-    }
-
-    .hero-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-      border: 1px solid var(--card-border);
+    .hero-card,
+    .card,
+    .article,
+    .newsletter,
+    .contact-box {
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(16, 32, 51, 0.07);
       border-radius: var(--radius);
-      padding: 28px;
       box-shadow: var(--shadow);
     }
 
+    .hero-card {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100%;
+    }
+
     .status {
-      display: inline-block;
-      font-size: 0.85rem;
-      color: #d9e9ff;
-      background: rgba(255,255,255,0.08);
-      padding: 8px 12px;
+      display: inline-flex;
+      width: fit-content;
       border-radius: 999px;
-      margin-bottom: 16px;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--primary-soft);
+      margin-bottom: 18px;
     }
 
-    .hero-card h2 {
-      margin: 0 0 12px;
-      font-size: 1.5rem;
+    .hero-card h2,
+    .section-title {
+      margin: 0 0 10px;
+      letter-spacing: -0.8px;
     }
 
-    .hero-card p {
-      margin: 0 0 20px;
+    .hero-card p,
+    .section-subtitle,
+    .card p,
+    .article p,
+    .contact-box p,
+    .newsletter p {
       color: var(--muted);
     }
 
     .mini-list {
       display: grid;
       gap: 12px;
+      margin-top: 18px;
     }
 
     .mini-item {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
       padding: 14px 16px;
+      background: var(--surface-soft);
+      border: 1px solid rgba(16, 32, 51, 0.05);
+      border-radius: 16px;
     }
 
     .mini-item strong {
       display: block;
       margin-bottom: 4px;
+      font-size: 0.98rem;
     }
 
     section {
-      padding: 36px 0;
+      padding: 34px 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 26px;
     }
 
     .section-title {
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      margin: 0 0 10px;
-      letter-spacing: -0.6px;
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
     }
 
     .section-subtitle {
-      color: var(--muted);
+      margin: 0;
       max-width: 760px;
-      margin: 0 0 28px;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 22px;
     }
 
     .card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
-      padding: 26px;
-      box-shadow: var(--shadow);
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 1.15rem;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .services {
-      margin-top: 8px;
-    }
-
-    .service-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .service {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
       padding: 24px;
     }
 
-    .service h3 {
+    .icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .card h3,
+    .article h3 {
       margin: 0 0 10px;
+      font-size: 1.12rem;
+      letter-spacing: -0.3px;
     }
 
-    .service p {
-      margin: 0;
+    .topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--line);
       color: var(--muted);
+      font-size: 0.9rem;
     }
 
-    .announcement {
-      margin-top: 10px;
-      padding: 30px;
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, rgba(78, 161, 255, 0.14), rgba(125, 211, 252, 0.08));
-      border: 1px solid rgba(125, 211, 252, 0.18);
+    .articles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
 
-    .announcement h3 {
-      margin: 0 0 10px;
-      font-size: 1.35rem;
+    .article {
+      overflow: hidden;
     }
 
-    .announcement p {
-      margin: 0;
+    .article-cover {
+      aspect-ratio: 16 / 9;
+      background:
+        linear-gradient(135deg, rgba(37,99,235,0.92), rgba(14,165,233,0.82)),
+        #dfefff;
+      padding: 22px;
+      color: #fff;
+      display: flex;
+      align-items: end;
+      font-weight: 700;
+      font-size: 1.15rem;
+      line-height: 1.25;
+    }
+
+    .article-body {
+      padding: 22px;
+    }
+
+    .meta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
       color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 12px;
+    }
+
+    .article-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      font-weight: 600;
+      margin-top: 14px;
+    }
+
+    .newsletter {
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .newsletter h3 {
+      margin: 0 0 8px;
+      font-size: 1.32rem;
+      letter-spacing: -0.5px;
     }
 
     .contact-box {
+      padding: 28px;
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 20px;
       align-items: center;
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .contact-box p {
-      margin: 8px 0 0;
-      color: var(--muted);
     }
 
     footer {
-      padding: 28px 0 40px;
-      color: var(--muted);
-      font-size: 0.95rem;
+      padding: 34px 0 44px;
     }
 
     .footer-row {
       display: flex;
+      align-items: center;
       justify-content: space-between;
       gap: 20px;
       flex-wrap: wrap;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid var(--line);
       padding-top: 22px;
-      margin-top: 26px;
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
-    @media (max-width: 980px) {
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1024px) {
       .hero-grid,
+      .grid-2,
+      .articles,
       .grid-3,
-      .service-list,
+      .newsletter,
       .contact-box {
         grid-template-columns: 1fr;
       }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        padding-top: 56px;
-      }
     }
 
-    @media (max-width: 640px) {
-      .container {
-        width: min(100% - 28px, var(--max-width));
-      }
-
-      h1 {
-        letter-spacing: -1px;
-      }
-
-      .cta-row {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-      }
+    @media (max-width: 760px) {
+      .nav-links { display: none; }
+      .hero { padding-top: 50px; }
+      .section-header { display: block; }
+      .cta-row { flex-direction: column; }
+      .btn { width: 100%; }
+      .container { width: min(var(--max-width), calc(100% - 28px)); }
+      h1 { letter-spacing: -1px; }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="container nav">
-      <a class="brand" href="#">
+      <a class="brand" href="#home">
         <span class="brand-badge">CD</span>
         <span>Cloud-Dominik</span>
       </a>
+
       <nav class="nav-links">
-        <a href="#leistungen">Leistungen</a>
-        <a href="#fokus">Fokus</a>
+        <a href="#themen">Themen</a>
+        <a href="#beitraege">Beiträge</a>
+        <a href="#about">Über mich</a>
         <a href="#kontakt">Kontakt</a>
+        <a href="https://www.linkedin.com/in/dominik-stampfli/" target="_blank">LinkedIn</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="home">
     <section class="hero">
       <div class="container hero-grid">
         <div>
           <div class="eyebrow">
             <span class="dot"></span>
-            Neue Website im Aufbau
+            Blog · Infos · Modern Workplace
           </div>
 
-          <h1>
-            Beratung für
-            <br />
-            Microsoft 365 &
-            <br />
-            Modern Workplace
-          </h1>
+          <h1>Microsoft 365 verständlich, modern und praxisnah erklärt.</h1>
 
           <p class="lead">
-            Cloud-Dominik unterstützt Unternehmen bei der Planung, Optimierung und
-            Umsetzung moderner Arbeitsplatzlösungen mit Fokus auf Microsoft 365,
-            Intune, Sicherheit, Automatisierung und praxisnahe Betriebsmodelle.
+            Cloud-Dominik ist eine minimalistische Blog- und Info-Plattform rund um
+            Microsoft 365, Modern Workplace, Intune, Sicherheit und Automatisierung.
+            Im Fokus stehen reale Herausforderungen aus dem IT-Alltag, klare Einordnungen
+            und umsetzbare technische Impulse.
           </p>
 
           <div class="cta-row">
-            <a class="btn btn-primary" href="mailto:info@Cloud-Dominik.ch">Kontakt aufnehmen</a>
-            <a class="btn btn-secondary" href="#leistungen">Mehr erfahren</a>
+            <a class="btn btn-primary" href="#beitraege">Zu den Beiträgen</a>
+            <a class="btn btn-secondary" href="#kontakt">Kontakt</a>
           </div>
 
           <div class="hero-points">
             <span>Microsoft 365</span>
-            <span>Modern Workplace</span>
-            <span>Intune & Endpoint Management</span>
-            <span>Automation & Security</span>
+            <span>Intune</span>
+            <span>Security</span>
+            <span>Automation</span>
+            <span>Endpoint Management</span>
           </div>
         </div>
 
         <aside class="hero-card">
-          <span class="status">Ankündigung</span>
-          <h2>Die neue Präsenz ist bald online</h2>
-          <p>
-            Aktuell entsteht hier die neue Website von Cloud-Dominik. In Kürze
-            findest du hier mehr Informationen zu Leistungen, Schwerpunkten und
-            Möglichkeiten der Zusammenarbeit.
-          </p>
+          <div>
+            <span class="status">Aktueller Fokus</span>
+            <h2>Wissen für den modernen Arbeitsplatz</h2>
+            <p>
+              Hier entstehen kompakte Inhalte für IT-Verantwortliche, Admins und
+              Unternehmen, die Microsoft-Technologien nicht nur einsetzen, sondern
+              sauber betreiben und sinnvoll weiterentwickeln möchten.
+            </p>
+          </div>
 
           <div class="mini-list">
             <div class="mini-item">
-              <strong>Beratung</strong>
-              Strategie, Architektur und Umsetzung für M365 und Modern Workplace.
+              <strong>Praxis statt Buzzwords</strong>
+              Verständliche Inhalte mit echtem Bezug zu Betrieb, Projekten und Umsetzung.
             </div>
             <div class="mini-item">
-              <strong>Praxisnah</strong>
-              Lösungsorientiert, technisch fundiert und auf den Alltag im Betrieb ausgerichtet.
+              <strong>Technisch fundiert</strong>
+              Fokus auf Microsoft 365, Intune, Governance, Security und Automatisierung.
             </div>
             <div class="mini-item">
-              <strong>Im Aufbau</strong>
-              Weitere Inhalte, Referenzen und Service-Details folgen in Kürze.
+              <strong>Minimal & klar</strong>
+              Reduziertes Design, schnelle Orientierung und Inhalte mit Mehrwert.
             </div>
           </div>
         </aside>
       </div>
     </section>
 
-    <section id="fokus">
+    <section id="themen">
       <div class="container">
-        <h2 class="section-title">Wofür Cloud-Dominik steht</h2>
-        <p class="section-subtitle">
-          Fokus auf moderne, sichere und effizient betreibbare Arbeitsplatzlösungen
-          für Unternehmen, die Microsoft-Technologien sinnvoll und nachhaltig nutzen wollen.
-        </p>
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Themenbereiche</h2>
+            <p class="section-subtitle">
+              Inhalte für Unternehmen und IT-Teams, die den Modern Workplace strukturiert,
+              sicher und effizient aufbauen oder weiterentwickeln möchten.
+            </p>
+          </div>
+        </div>
 
         <div class="grid-3">
-          <div class="card">
-            <h3>Modern Workplace</h3>
+          <article class="card">
+            <div class="icon">M</div>
+            <h3>Microsoft 365</h3>
             <p>
-              Unterstützung bei der Einführung und Weiterentwicklung moderner
-              Arbeitsumgebungen mit Microsoft 365.
+              Einordnung, Best Practices und praxistaugliche Ansätze für Collaboration,
+              Governance, Tenant-Strukturen und die produktive Nutzung der Plattform.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">I</div>
+            <h3>Intune & Devices</h3>
+            <p>
+              Beiträge zu Enrollment, Konfiguration, Compliance, Softwareverteilung,
+              Windows-Management und betriebssicheren Standards für Endgeräte.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">A</div>
+            <h3>Automation & Security</h3>
+            <p>
+              Weniger manuelle Arbeit, mehr Kontrolle: Automatisierung, PowerShell,
+              Security-Baselines und technische Vereinfachung im laufenden Betrieb.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="beitraege">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Ausgewählte Beiträge</h2>
+            <p class="section-subtitle">
+              Beispielhafte Content-Struktur für Blogartikel, Insights oder kurze technische
+              Einordnungen. Die Karten kannst du später direkt mit echten Beiträgen verknüpfen.
             </p>
           </div>
-          <div class="card">
-            <h3>Cloud & Management</h3>
-            <p>
-              Strukturierte Umsetzung von Intune, Gerätemanagement, Identitäten
-              und standardisierten Betriebsprozessen.
-            </p>
+          <a class="btn btn-secondary" href="mailto:info@cloud-dominik.ch">Themen anfragen</a>
+        </div>
+
+        <div class="articles">
+          <article class="article">
+            <div class="article-cover">Intune sauber strukturieren: Was wirklich in ein modernes Gerätemanagement gehört</div>
+            <div class="article-body">
+              <div class="meta">
+                <span>Intune</span>
+                <span>8 Min. Lesezeit</span>
+              </div>
+              <h3>Vom Enrollment bis zur Compliance: eine klare Basis für stabile Endgeräteprozesse.</h3>
+              <p>
+                Ein möglicher Beitrag über Standards, Richtlinien und typische Stolpersteine,
+                wenn Intune langfristig sauber betrieben werden soll.
+              </p>
+              <a class="article-link" href="#kontakt">Beitrag lesen →</a>
+            </div>
+          </article>
+
+          <article class="article">
+            <div class="article-cover">Microsoft 365 Governance ohne Overhead: pragmatische Regeln für produktive Umgebungen</div>
+            <div class="article-body">
+              <div class="meta">
+                <span>Microsoft 365</span>
+                <span>6 Min. Lesezeit</span>
+              </div>
+              <h3>Wie sich Struktur, Verantwortung und Nutzbarkeit sinnvoll miteinander verbinden lassen.</h3>
+              <p>
+                Ideal für Inhalte rund um Rollen, Namenskonzepte, Lifecycle, Berechtigungen
+                und nachhaltige Betriebsmodelle.
+              </p>
+              <a class="article-link" href="#kontakt">Beitrag lesen →</a>
+            </div>
+          </article>
+
+          <article class="article">
+            <div class="article-cover">PowerShell im Modern Workplace: kleine Automationen mit großem Effekt</div>
+            <div class="article-body">
+              <div class="meta">
+                <span>Automation</span>
+                <span>5 Min. Lesezeit</span>
+              </div>
+              <h3>Wiederkehrende Aufgaben reduzieren und betriebliche Qualität messbar verbessern.</h3>
+              <p>
+                Perfekt für technische How-tos, Skriptideen, Kontrollmechanismen und
+                reale Beispiele aus Endpoint- und M365-Projekten.
+              </p>
+              <a class="article-link" href="#kontakt">Beitrag lesen →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container grid-2">
+        <div class="card">
+          <h2 class="section-title">Über Cloud-Dominik</h2>
+          <p>
+            Cloud-Dominik steht für moderne Microsoft-Arbeitsplätze mit klarer Struktur,
+            technischem Tiefgang und einem starken Praxisbezug. Die Seite verbindet Blog,
+            Wissensplattform und kompakte Unternehmenspräsenz in einem reduzierten, professionellen Stil.
+          </p>
+          <div class="topics">
+            <span class="tag">Modern Workplace</span>
+            <span class="tag">Microsoft 365</span>
+            <span class="tag">Intune</span>
+            <span class="tag">Endpoint Management</span>
+            <span class="tag">Security</span>
+            <span class="tag">PowerShell</span>
           </div>
-          <div class="card">
-            <h3>Security & Automation</h3>
-            <p>
-              Mehr Sicherheit, weniger manueller Aufwand und bessere Skalierbarkeit
-              durch durchdachte Automatisierung.
-            </p>
+        </div>
+
+        <div class="card">
+          <h2 class="section-title">Für wen ist die Seite gedacht?</h2>
+          <p>
+            Für IT-Verantwortliche, Administratoren, Projektteams und Unternehmen, die
+            Informationen nicht nur konsumieren, sondern in ihrer Umgebung konkret anwenden möchten.
+          </p>
+          <div class="mini-list">
+            <div class="mini-item">
+              <strong>Admins & Engineers</strong>
+              Kompakte technische Einblicke, Best Practices und Lösungsansätze.
+            </div>
+            <div class="mini-item">
+              <strong>Unternehmen</strong>
+              Orientierung für moderne, sichere und betreibbare Microsoft-Umgebungen.
+            </div>
+            <div class="mini-item">
+              <strong>Projektverantwortliche</strong>
+              Inhalte für Planung, Einführung, Optimierung und Standardisierung.
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="leistungen" class="services">
+    <section>
       <div class="container">
-        <h2 class="section-title">Leistungsfelder</h2>
-        <p class="section-subtitle">
-          Ein Auszug der Themen, mit denen Unternehmen beim Aufbau und Betrieb
-          moderner Microsoft-Umgebungen unterstützt werden.
-        </p>
-
-        <div class="service-list">
-          <div class="service">
-            <h3>Microsoft 365 Beratung</h3>
+        <div class="newsletter">
+          <div>
+            <h3>Wissen kompakt statt überladen</h3>
             <p>
-              Beratung rund um Tenant-Strukturen, Governance, Collaboration,
-              Identitäten und produktive Nutzung der Microsoft-365-Plattform.
+              Diese Fläche eignet sich ideal für einen Hinweis auf neue Beiträge,
+              einen Newsletter oder einen kurzen CTA zu Beratung und Austausch.
             </p>
           </div>
-          <div class="service">
-            <h3>Modern Workplace Konzepte</h3>
-            <p>
-              Gestaltung moderner Arbeitsplatzlösungen für Endgeräte, Benutzer,
-              Prozesse und sichere Zugriffe.
-            </p>
-          </div>
-          <div class="service">
-            <h3>Intune & Endpoint Management</h3>
-            <p>
-              Unterstützung bei Enrollment, Gerätekonfiguration, Compliance,
-              Softwarebereitstellung und Betriebsstandards.
-            </p>
-          </div>
-          <div class="service">
-            <h3>Automatisierung & Optimierung</h3>
-            <p>
-              Effizientere Abläufe durch PowerShell, standardisierte Routinen
-              und technische Vereinfachung wiederkehrender Aufgaben.
-            </p>
-          </div>
-        </div>
-
-        <div class="announcement">
-          <h3>Website im Aufbau</h3>
-          <p>
-            Diese Seite dient aktuell als Ankündigung. Weitere Informationen zu
-            Services, Vorgehensweise und Kontaktmöglichkeiten werden in Kürze ergänzt.
-          </p>
+          <a class="btn btn-primary" href="mailto:info@cloud-dominik.ch">Jetzt Kontakt aufnehmen</a>
         </div>
       </div>
     </section>
@@ -558,11 +695,11 @@
           <div>
             <h2 class="section-title" style="margin-bottom: 0;">Interesse an einem Austausch?</h2>
             <p>
-              Bei Fragen zu Microsoft 365, Modern Workplace oder möglichen
-              Beratungsleistungen freue ich mich über eine Kontaktaufnahme.
+              Bei Fragen zu Microsoft 365, Modern Workplace, Intune oder möglichen
+              Beratungs- und Blogthemen freue ich mich über deine Nachricht.
             </p>
           </div>
-          <a class="btn btn-primary" href="mailto:info@Cloud-Dominik.ch">info@Cloud-Dominik.ch</a>
+          <a class="btn btn-primary" href="mailto:info@cloud-dominik.ch">info@cloud-dominik.ch</a>
         </div>
       </div>
     </section>
@@ -571,7 +708,13 @@
   <footer>
     <div class="container footer-row">
       <div>© 2026 Cloud-Dominik</div>
-      <div>Beratung für Microsoft 365, Modern Workplace, Intune und Automatisierung</div>
+      <div class="footer-links">
+        <a href="#themen">Themen</a>
+        <a href="#beitraege">Beiträge</a>
+        <a href="#about">Über mich</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="https://www.linkedin.com/in/dominik-stampfli/" target="_blank">LinkedIn</a>
+      </div>
     </div>
   </footer>
 </body>
